@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NewsLetterbox = () => {
+const Newsletterbox = () => {
 
     const onSubmitHandler=(event)=>{
         event.preventDefault();
@@ -18,4 +18,4 @@ const NewsLetterbox = () => {
   )
 }
 
-export default NewsLetterbox
+export default Newsletterbox
