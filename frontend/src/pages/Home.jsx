@@ -3,16 +3,16 @@ import Hero from "../components/Hero.jsx";
 import LatestCollection from "../components/LatestCollection.jsx";
 import BestSeller from "../components/BestSeller.jsx";
 import OurPolicy from "../components/OurPolicy.jsx";
-import NewsLetterbox from "../components/NewsletterBox.jsx";
+import NewsLetterbox from "../components/Newsletterbox.jsx";
 
 const Home = () => {
   return (
     <div>
       <Hero />
-      <LatestCollection/>
-      <BestSeller/>
-      <OurPolicy/>
-      <NewsLetterbox/>
+      <LatestCollection />
+      <BestSeller />
+      <OurPolicy />
+      <NewsLetterbox />
     </div>
   );
 };
