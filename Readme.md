@@ -610,6 +610,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ⭐ If you found this project helpful, please give it a star!
 
-## 📞 Support
-
-For support, email [your-email@example.com] or open an issue in the GitHub repository.
+For support, email [aryanathne@gmail.com] or open an issue in the GitHub repository.
