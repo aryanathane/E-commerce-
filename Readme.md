@@ -2,7 +2,7 @@
 
 A full-stack e-commerce web application built with modern JavaScript technologies, featuring a customer-facing storefront, admin panel, and backend API.
 
-🔗 **Live Demo**: [e-commerce-backend-black.vercel.app](https://e-commerce-backend-black.vercel.app)
+🔗 **Live Demo**: [e-commerce.vercel.app](https://forever-mauve-theta.vercel.app/)
 
 ## 📋 Table of Contents
 
