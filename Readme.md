@@ -1,287 +1,256 @@
 # E-Commerce Website
 
-A full-stack e-commerce web application built with modern JavaScript technologies, featuring a customer-facing storefront, admin panel, and backend API.
+A full-stack e-commerce application with separate backend, admin panel, and customer frontend. Built with modern web technologies including Node.js, MongoDB, and React.
 
 🔗 **Live Demo**: [forever-mauve-theta.vercel.app](https://forever-mauve-theta.vercel.app/)
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
+- [Environment Variables](#environment-variables)
+- [Running the Application](#running-the-application)
 - [API Documentation](#api-documentation)
+- [Deployment](#deployment)
 - [Contributing](#contributing)
 - [License](#license)
 
-## 🎯 Overview
-
-This e-commerce platform provides a complete online shopping solution with separate interfaces for customers and administrators. The application includes product browsing, cart management, order processing, and a comprehensive admin dashboard for managing the store.
-
 ## ✨ Features
 
-### Customer Features
-- 🛍️ Browse products with categories and filters
-- 🔍 Search functionality
-- 🛒 Shopping cart management
-- 💳 Secure payment processing with Stripe
-- 💰 Multiple payment methods support
-- 👤 User authentication and profile management
-- 📦 Order tracking
-- 📱 Responsive design for mobile and desktop
+### Customer Frontend
+- Browse products with categories and filters
+- Product search functionality
+- Shopping cart management
+- User authentication and profile management
+- Secure checkout with Stripe payment integration
+- Order history and tracking
+- Responsive design for mobile and desktop
 
-### Admin Features
-- 📊 Dashboard with analytics
-- 📦 Product management (CRUD operations)
-- 🏷️ Category management
-- 👥 User management
-- 📋 Order management and tracking
-- 💰 Sales reports and analytics
+### Admin Panel
+- Product management (CRUD operations)
+- Category management
+- Order management and status updates
+- User management
+- Dashboard with analytics
+- Image upload with Cloudinary integration
+- Inventory tracking
 
-## 🛠️ Tech Stack
+### Backend API
+- RESTful API architecture
+- JWT-based authentication
+- Secure password hashing
+- MongoDB database integration
+- Cloudinary integration for image storage
+- Stripe payment processing
+- Order management system
 
-### Frontend
-- **React.js** - UI library
-- **JavaScript** - Programming language
-- **CSS3** - Styling
-- **Responsive Design** - Mobile-first approach
+## 🛠 Tech Stack
 
-### Backend
-- **Node.js** - Runtime environment
-- **Express.js** - Web framework
-- **MongoDB** - Database
-- **Stripe API** - Payment processing
-- **RESTful API** - API architecture
+**Frontend:**
+- React.js
+- JavaScript
+- HTML5/CSS3
+- Responsive Design
 
-### Deployment
-- **Vercel** - Frontend and Backend hosting
-- **MongoDB Atlas** - Cloud database (recommended)
+**Backend:**
+- Node.js
+- Express.js
+- MongoDB (Database)
+- Mongoose (ODM)
+
+**Authentication & Security:**
+- JWT (JSON Web Tokens)
+- Bcrypt (Password hashing)
+
+**Payment Processing:**
+- Stripe API
+
+**Cloud Services:**
+- Cloudinary (Image storage and management)
+- Vercel (Deployment)
 
 ## 📁 Project Structure
 
 ```
-E-commerce-/
-├── Backend/           # Backend API and server
-│   ├── controllers/   # Route controllers
-│   ├── models/        # Database models
-│   ├── routes/        # API routes
-│   ├── middleware/    # Custom middleware
-│   └── config/        # Configuration files
-│
-├── frontend/          # Customer-facing application
-│   ├── src/
-│   │   ├── components/    # React components
-│   │   ├── pages/         # Page components
-│   │   ├── services/      # API services
-│   │   └── utils/         # Utility functions
-│   └── public/
-│
-├── admin/             # Admin dashboard
-│   ├── src/
-│   │   ├── components/    # Admin components
-│   │   ├── pages/         # Admin pages
-│   │   └── services/      # Admin API services
-│   └── public/
-│
+E-commerce/
+├── Backend/          # Node.js/Express backend API
+├── admin/            # Admin panel (React)
+├── frontend/         # Customer-facing website (React)
 ├── .gitignore
-└── README.md
+└── Readme.md
 ```
 
-## 🚀 Getting Started
+## 📦 Prerequisites
 
-### Prerequisites
-
+Before you begin, ensure you have the following installed:
 - Node.js (v14 or higher)
 - npm or yarn
-- MongoDB (local or cloud instance)
-- Stripe Account (for payment processing)
-- Git
+- MongoDB (local or Atlas account)
+- Stripe account (for payment processing)
+- Cloudinary account (for image management)
 
-### Installation
+## 🚀 Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/aryanathane/E-commerce-.git
-   cd E-commerce-
-   ```
+### 1. Clone the repository
+```bash
+git clone https://github.com/aryanathane/E-commerce-.git
+cd E-commerce-
+```
 
-2. **Install Backend Dependencies**
-   ```bash
-   cd Backend
-   npm install
-   ```
+### 2. Install Backend Dependencies
+```bash
+cd Backend
+npm install
+```
 
-3. **Install Frontend Dependencies**
-   ```bash
-   cd ../frontend
-   npm install
-   ```
+### 3. Install Admin Panel Dependencies
+```bash
+cd ../admin
+npm install
+```
 
-4. **Install Admin Dependencies**
-   ```bash
-   cd ../admin
-   npm install
-   ```
+### 4. Install Frontend Dependencies
+```bash
+cd ../frontend
+npm install
+```
 
-## ⚙️ Configuration
+## 🔐 Environment Variables
 
-### Backend Configuration
-
-Create a `.env` file in the `Backend` directory:
+Create a `.env` file in the **Backend** directory with the following variables:
 
 ```env
-PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-NODE_ENV=development
-
 # Stripe Configuration
-STRIPE_SECRET_KEY=your_stripe_secret_key
-STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
-STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+STRIPE_KEY=your_stripe_secret_key_here
+
+# MongoDB Configuration
+MONGODB_URL=your_mongodb_connection_string_here
+
+# Server Configuration
+PORT=5000
+
+# Cloudinary Configuration
+CLOUDINARY_API_KEY=your_cloudinary_api_key_here
+CLOUDINARY_SECRET_KEY=your_cloudinary_secret_key_here
+CLOUDINARY_NAME=your_cloudinary_cloud_name_here
+
+# JWT Configuration
+JWT_SECRET=your_jwt_secret_key_here
+
+# Admin Credentials
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD=your_secure_admin_password_here
 ```
 
-### Frontend Configuration
+### How to Get API Keys:
 
-Create a `.env` file in the `frontend` directory:
+**Stripe:**
+1. Sign up at [stripe.com](https://stripe.com)
+2. Navigate to Developers → API Keys
+3. Copy your Secret Key
 
-```env
-REACT_APP_API_URL=http://localhost:5000/api
-REACT_APP_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+**MongoDB:**
+1. Create account at [mongodb.com](https://www.mongodb.com/cloud/atlas)
+2. Create a cluster
+3. Get connection string from "Connect" button
+
+**Cloudinary:**
+1. Sign up at [cloudinary.com](https://cloudinary.com)
+2. Go to Dashboard
+3. Copy Cloud Name, API Key, and API Secret
+
+## 🏃 Running the Application
+
+### Start Backend Server
+```bash
+cd Backend
+npm start
+# or for development with auto-reload
+npm run dev
 ```
+Backend will run on `http://localhost:5000`
 
-### Admin Configuration
-
-Create a `.env` file in the `admin` directory:
-
-```env
-REACT_APP_API_URL=http://localhost:5000/api
+### Start Admin Panel
+```bash
+cd admin
+npm start
 ```
+Admin panel will run on `http://localhost:3000`
 
-## 💻 Usage
-
-### Running the Application
-
-1. **Start the Backend Server**
-   ```bash
-   cd Backend
-   npm start
-   # or for development with nodemon
-   npm run dev
-   ```
-
-2. **Start the Frontend**
-   ```bash
-   cd frontend
-   npm start
-   ```
-
-3. **Start the Admin Panel**
-   ```bash
-   cd admin
-   npm start
-   ```
-
-The applications will be available at:
-- Backend API: `http://localhost:5000`
-- Frontend: `http://localhost:3000`
-- Admin Panel: `http://localhost:3001`
+### Start Frontend
+```bash
+cd frontend
+npm start
+```
+Frontend will run on `http://localhost:3001`
 
 ## 📡 API Documentation
 
-### Authentication
+### Base URL
+```
+http://localhost:5000/api
+```
+
+### Authentication Endpoints
 - `POST /api/auth/register` - Register new user
 - `POST /api/auth/login` - User login
-- `GET /api/auth/profile` - Get user profile
+- `GET /api/auth/profile` - Get user profile (Protected)
 
-### Products
+### Product Endpoints
 - `GET /api/products` - Get all products
-- `GET /api/products/:id` - Get single product
-- `POST /api/products` - Create product (Admin)
-- `PUT /api/products/:id` - Update product (Admin)
-- `DELETE /api/products/:id` - Delete product (Admin)
+- `GET /api/products/:id` - Get product by ID
+- `POST /api/products` - Create product (Admin only)
+- `PUT /api/products/:id` - Update product (Admin only)
+- `DELETE /api/products/:id` - Delete product (Admin only)
 
-### Orders
-- `GET /api/orders` - Get user orders
+### Order Endpoints
 - `POST /api/orders` - Create new order
-- `GET /api/orders/:id` - Get order details
-- `PUT /api/orders/:id` - Update order status (Admin)
+- `GET /api/orders` - Get user orders (Protected)
+- `GET /api/orders/:id` - Get order by ID (Protected)
+- `PUT /api/orders/:id` - Update order status (Admin only)
 
-### Cart
-- `GET /api/cart` - Get user cart
-- `POST /api/cart` - Add item to cart
-- `PUT /api/cart/:id` - Update cart item
-- `DELETE /api/cart/:id` - Remove item from cart
+### Payment Endpoints
+- `POST /api/payment/create-payment-intent` - Create Stripe payment intent
+- `POST /api/payment/webhook` - Stripe webhook handler
 
-### Payment
-- `POST /api/payment/create-checkout-session` - Create Stripe checkout session
-- `POST /api/payment/webhook` - Handle Stripe webhooks
-- `GET /api/payment/success` - Payment success callback
-- `GET /api/payment/cancel` - Payment cancellation callback
+## 🌐 Deployment
 
-## 🚀 Deployment
+### Backend (Vercel)
+1. Install Vercel CLI: `npm install -g vercel`
+2. Navigate to Backend folder
+3. Run `vercel` and follow prompts
+4. Add environment variables in Vercel dashboard
 
-### Deploy to Vercel
+### Frontend & Admin (Vercel/Netlify)
+1. Build the production version: `npm run build`
+2. Deploy the `build` folder to your hosting service
+3. Update API endpoints to production URLs
 
-1. **Install Vercel CLI**
-   ```bash
-   npm install -g vercel
-   ```
+## 📝 Usage
 
-2. **Deploy Backend**
-   ```bash
-   cd Backend
-   vercel --prod
-   ```
+### Admin Access
+1. Navigate to the admin panel
+2. Login with admin credentials from `.env`
+3. Manage products, orders, and users
 
-3. **Deploy Frontend**
-   ```bash
-   cd frontend
-   vercel --prod
-   ```
-
-4. **Deploy Admin Panel**
-   ```bash
-   cd admin
-   vercel --prod
-   ```
-
-### Environment Variables on Vercel
-
-Add the following environment variables in your Vercel project settings:
-
-**Backend:**
-- `MONGODB_URI`
-- `JWT_SECRET`
-- `STRIPE_SECRET_KEY`
-- `STRIPE_WEBHOOK_SECRET`
-- `NODE_ENV=production`
-
-**Frontend & Admin:**
-- `REACT_APP_API_URL` (your deployed backend URL)
-- `REACT_APP_STRIPE_PUBLISHABLE_KEY`
-
-### Stripe Setup
-
-1. Create a Stripe account at [stripe.com](https://stripe.com)
-2. Get your API keys from the Stripe Dashboard
-3. Set up webhook endpoints in Stripe Dashboard:
-   - Add endpoint: `https://your-backend-url/api/payment/webhook`
-   - Select events: `checkout.session.completed`, `payment_intent.succeeded`
-4. Copy the webhook signing secret to your environment variables
+### Customer Flow
+1. Browse products on the frontend
+2. Add items to cart
+3. Proceed to checkout
+4. Complete payment with Stripe
+5. View order confirmation
 
 ## 🤝 Contributing
 
 Contributions are welcome! Please follow these steps:
 
 1. Fork the repository
-2. Create a new branch (`git checkout -b feature/YourFeature`)
-3. Commit your changes (`git commit -m 'Add some feature'`)
-4. Push to the branch (`git push origin feature/YourFeature`)
+2. Create a new branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
 ## 👤 Author
@@ -291,319 +260,15 @@ Contributions are welcome! Please follow these steps:
 
 ## 🙏 Acknowledgments
 
-- Thanks to all contributors who have helped shape this project
-- Inspired by modern e-commerce platforms
-- Built with passion for learning and development
-
----
-
-⭐ If you found this project helpful, please give it a star!
+- Stripe for payment processing
+- Cloudinary for image management
+- MongoDB for database
+- All contributors and supporters
 
 ## 📞 Support
 
-For support, email [your-email@example.com] or open an issue in the GitHub repository.# E-Commerce Website
-
-A full-stack e-commerce web application built with modern JavaScript technologies, featuring a customer-facing storefront, admin panel, and backend API.
-
-🔗 **Live Demo**: [e-commerce-backend-black.vercel.app](https://e-commerce-backend-black.vercel.app)
-
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
-
-## 🎯 Overview
-
-This e-commerce platform provides a complete online shopping solution with separate interfaces for customers and administrators. The application includes product browsing, cart management, order processing, and a comprehensive admin dashboard for managing the store.
-
-## ✨ Features
-
-### Customer Features
-- 🛍️ Browse products with categories and filters
-- 🔍 Search functionality
-- 🛒 Shopping cart management
-- 💳 Secure payment processing with Stripe
-- 💰 Multiple payment methods support
-- 👤 User authentication and profile management
-- 📦 Order tracking
-- 📱 Responsive design for mobile and desktop
-
-### Admin Features
-- 📊 Dashboard with analytics
-- 📦 Product management (CRUD operations)
-- 🏷️ Category management
-- 👥 User management
-- 📋 Order management and tracking
-- 💰 Sales reports and analytics
-
-## 🛠️ Tech Stack
-
-### Frontend
-- **React.js** - UI library
-- **JavaScript** - Programming language
-- **CSS3** - Styling
-- **Responsive Design** - Mobile-first approach
-
-### Backend
-- **Node.js** - Runtime environment
-- **Express.js** - Web framework
-- **MongoDB** - Database
-- **Stripe API** - Payment processing
-- **RESTful API** - API architecture
-
-### Deployment
-- **Vercel** - Frontend and Backend hosting
-- **MongoDB Atlas** - Cloud database (recommended)
-
-## 📁 Project Structure
-
-```
-E-commerce-/
-├── Backend/           # Backend API and server
-│   ├── controllers/   # Route controllers
-│   ├── models/        # Database models
-│   ├── routes/        # API routes
-│   ├── middleware/    # Custom middleware
-│   └── config/        # Configuration files
-│
-├── frontend/          # Customer-facing application
-│   ├── src/
-│   │   ├── components/    # React components
-│   │   ├── pages/         # Page components
-│   │   ├── services/      # API services
-│   │   └── utils/         # Utility functions
-│   └── public/
-│
-├── admin/             # Admin dashboard
-│   ├── src/
-│   │   ├── components/    # Admin components
-│   │   ├── pages/         # Admin pages
-│   │   └── services/      # Admin API services
-│   └── public/
-│
-├── .gitignore
-└── README.md
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm or yarn
-- MongoDB (local or cloud instance)
-- Stripe Account (for payment processing)
-- Git
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/aryanathane/E-commerce-.git
-   cd E-commerce-
-   ```
-
-2. **Install Backend Dependencies**
-   ```bash
-   cd Backend
-   npm install
-   ```
-
-3. **Install Frontend Dependencies**
-   ```bash
-   cd ../frontend
-   npm install
-   ```
-
-4. **Install Admin Dependencies**
-   ```bash
-   cd ../admin
-   npm install
-   ```
-
-## ⚙️ Configuration
-
-### Backend Configuration
-
-Create a `.env` file in the `Backend` directory:
-
-```env
-PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-NODE_ENV=development
-
-# Stripe Configuration
-STRIPE_SECRET_KEY=your_stripe_secret_key
-STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
-STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
-```
-
-### Frontend Configuration
-
-Create a `.env` file in the `frontend` directory:
-
-```env
-REACT_APP_API_URL=http://localhost:5000/api
-REACT_APP_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
-```
-
-### Admin Configuration
-
-Create a `.env` file in the `admin` directory:
-
-```env
-REACT_APP_API_URL=http://localhost:5000/api
-```
-
-## 💻 Usage
-
-### Running the Application
-
-1. **Start the Backend Server**
-   ```bash
-   cd Backend
-   npm start
-   # or for development with nodemon
-   npm run dev
-   ```
-
-2. **Start the Frontend**
-   ```bash
-   cd frontend
-   npm start
-   ```
-
-3. **Start the Admin Panel**
-   ```bash
-   cd admin
-   npm start
-   ```
-
-The applications will be available at:
-- Backend API: `http://localhost:5000`
-- Frontend: `http://localhost:3000`
-- Admin Panel: `http://localhost:3001`
-
-## 📡 API Documentation
-
-### Authentication
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - User login
-- `GET /api/auth/profile` - Get user profile
-
-### Products
-- `GET /api/products` - Get all products
-- `GET /api/products/:id` - Get single product
-- `POST /api/products` - Create product (Admin)
-- `PUT /api/products/:id` - Update product (Admin)
-- `DELETE /api/products/:id` - Delete product (Admin)
-
-### Orders
-- `GET /api/orders` - Get user orders
-- `POST /api/orders` - Create new order
-- `GET /api/orders/:id` - Get order details
-- `PUT /api/orders/:id` - Update order status (Admin)
-
-### Cart
-- `GET /api/cart` - Get user cart
-- `POST /api/cart` - Add item to cart
-- `PUT /api/cart/:id` - Update cart item
-- `DELETE /api/cart/:id` - Remove item from cart
-
-### Payment
-- `POST /api/payment/create-checkout-session` - Create Stripe checkout session
-- `POST /api/payment/webhook` - Handle Stripe webhooks
-- `GET /api/payment/success` - Payment success callback
-- `GET /api/payment/cancel` - Payment cancellation callback
-
-## 🚀 Deployment
-
-### Deploy to Vercel
-
-1. **Install Vercel CLI**
-   ```bash
-   npm install -g vercel
-   ```
-
-2. **Deploy Backend**
-   ```bash
-   cd Backend
-   vercel --prod
-   ```
-
-3. **Deploy Frontend**
-   ```bash
-   cd frontend
-   vercel --prod
-   ```
-
-4. **Deploy Admin Panel**
-   ```bash
-   cd admin
-   vercel --prod
-   ```
-
-### Environment Variables on Vercel
-
-Add the following environment variables in your Vercel project settings:
-
-**Backend:**
-- `MONGODB_URI`
-- `JWT_SECRET`
-- `STRIPE_SECRET_KEY`
-- `STRIPE_WEBHOOK_SECRET`
-- `NODE_ENV=production`
-
-**Frontend & Admin:**
-- `REACT_APP_API_URL` (your deployed backend URL)
-- `REACT_APP_STRIPE_PUBLISHABLE_KEY`
-
-### Stripe Setup
-
-1. Create a Stripe account at [stripe.com](https://stripe.com)
-2. Get your API keys from the Stripe Dashboard
-3. Set up webhook endpoints in Stripe Dashboard:
-   - Add endpoint: `https://your-backend-url/api/payment/webhook`
-   - Select events: `checkout.session.completed`, `payment_intent.succeeded`
-4. Copy the webhook signing secret to your environment variables
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/YourFeature`)
-3. Commit your changes (`git commit -m 'Add some feature'`)
-4. Push to the branch (`git push origin feature/YourFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 👤 Author
-
-**Aryan Athane**
-- GitHub: [@aryanathane](https://github.com/aryanathane)
-
-## 🙏 Acknowledgments
-
-- Thanks to all contributors who have helped shape this project
-- Inspired by modern e-commerce platforms
-- Built with passion for learning and development
+For support, email aryanathane@gmail.com or open an issue in the repository.
 
 ---
 
-⭐ If you found this project helpful, please give it a star!
-
-For support, email [aryanathne@gmail.com] or open an issue in the GitHub repository.
+⭐ If you find this project helpful, please give it a star!
